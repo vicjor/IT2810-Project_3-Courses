@@ -77,7 +77,7 @@ courseRoutes.route('/').get(async function(req, res) {
 // Course_code works as a key in the database (is unique for all documents in the collection)
 courseRoutes.route('/:course_code').get(async (req, res) => {
     let course_code = req.params.course_code;
-    course = await Course.find({course_code : course_code}, (err, course) => {
+    let course = await Course.find({course_code : course_code}, (err, course) => {
         res.json(course);
     }).catch(error => res.status(500).json(error));
 });

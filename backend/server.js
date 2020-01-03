@@ -40,12 +40,15 @@ app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
 
 // Adress to MongoDB. On format: mongodb://<username>:<pwd>@<IP>/<DNS>:<port>/<database>
 const dbRoute = process.env.DB_ROUTE;
-
 // Connecting to the MongoDB by using mongoose's connect function.
-mongoose.connect(dbRoute, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect(dbRoute, { useNewUrlParser: true}, { useUnifiedTopology: true });
+//mongoose.connect(dbRoute, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+
 // Connection is our active connection to the MongoDB
 const connection = mongoose.connection;
-
+mongoose.connection.on('error', err => {
+  console.log(err);
+});
 // Once the connection is established, print message to console.
 connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
