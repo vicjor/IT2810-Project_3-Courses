@@ -51,7 +51,7 @@ export const fetchCoursesFailure = (error) => dispatch =>{
 export const fetchCourses = (oldQuery, newQuery) => {
     return (dispatch) => {
         dispatch(fetchCoursesBegin())
-        axios.get("http://it2810-39.idi.ntnu.no:3001/courses?"+oldQuery+newQuery)
+        axios.get("http://victorjorgensen.com:3001/courses?"+oldQuery+newQuery)
         .then(response => {
             dispatch(fetchCoursesSuccess(response.data)) 
         })
