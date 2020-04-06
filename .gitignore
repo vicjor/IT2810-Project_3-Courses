@@ -26,6 +26,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # backend
+/backend/.env
 /backend/node_modules
 /backend/node_modules/.cache/@babel/register/.babel.7.6.4.development.json
 
