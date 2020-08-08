@@ -47,7 +47,6 @@ class Chart extends Component {
                 let semesterCodes = this.props.grades[0].semesters.map((sem) => sem.semester_code);
                 if (!this.props.activeSemester) {
                     this.props.setChosenSemester(semesterCodes[semesterCodes.length - 1]);
-                    console.log(`chosen ${semesterCodes[semesterCodes.length - 1]}`);
                 }
 
                 return semesterCodes
@@ -76,12 +75,9 @@ class Chart extends Component {
     It returns the dropdown menu and runs the renderchart method
     */
     renderDropdown = () => {
-        console.log(this.props.activeSemester);
         let semesterCodes = this.getSemesterCodes();
         if (semesterCodes.length > 10) {
-            console.table(semesterCodes);
             semesterCodes = semesterCodes.slice(0, 9);
-            console.log(semesterCodes.length);
             let dropdown = semesterCodes.map((code) => (
                 <Dropdown.Item eventKey={code} value={code} onClick={this.handleChange}>
                     {code}
