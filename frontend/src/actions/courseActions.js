@@ -50,7 +50,7 @@ export const fetchCourses = (oldQuery, newQuery) => {
     return (dispatch) => {
         dispatch(fetchCoursesBegin());
         axios
-            .get('https://courses.victorjorgensen.com/api?' + oldQuery + newQuery)
+            .get('https://courses.victorjorgensen.com/api/courses?' + oldQuery + newQuery)
             .then((response) => {
                 dispatch(fetchCoursesSuccess(response.data));
             })
