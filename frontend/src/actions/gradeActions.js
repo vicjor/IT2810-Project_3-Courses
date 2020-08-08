@@ -27,7 +27,7 @@ export const fetchGrades = (coursecode) => {
     return (dispatch) => {
         dispatch(fetchGradesBegin());
         axios
-            .get('https://victorjorgensen.com/api/courses/' + coursecode + '/grades/')
+            .get('https://courses.victorjorgensen.com/api?' + coursecode + '/grades/')
             .then((response) => {
                 dispatch(fetchGradesSuccess(response.data)); //skal det være .data her?
             })
